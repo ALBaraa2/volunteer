@@ -1,36 +1,36 @@
-# التاسك 01 — تجهيز المشروع (Setup)
+# Task 01 — Project Setup
 
-## 🎯 الهدف
-تجهيز بيئة العمل ومشروع Laravel فاضي وجاهز للشغل، وربطه بـ Git.
+## 🎯 Goal
+Set up your working environment and an empty, ready-to-build Laravel project, connected to Git.
 
-## 📋 المطلوب
-1. أنشئ مشروع Laravel جديد:
+## 📋 Requirements
+1. Create a new Laravel project:
    ```bash
    composer create-project laravel/laravel volunteer-coordination
    ```
-2. اضبط ملف `.env`:
-   - اسم التطبيق `APP_NAME`.
-   - إعدادات قاعدة البيانات (`DB_*`) — أنشئ قاعدة بيانات فاضية باسم واضح.
-3. شغّل المشروع وتأكد إنه يفتح:
+2. Configure your `.env` file:
+   - App name (`APP_NAME`).
+   - Database settings (`DB_*`) — create an empty database with a clear name.
+3. Run the project and make sure it opens:
    ```bash
    php artisan serve
    ```
-4. تأكد إن `php artisan migrate` يشتغل بدون أخطاء (جداول Laravel الافتراضية).
-5. اربط المشروع بـ Git:
+4. Make sure `php artisan migrate` runs without errors (Laravel's default tables).
+5. Connect the project to Git:
    - `git init`
-   - تأكد إن `.gitignore` فيه `.env` و `vendor/` و `node_modules/`.
-   - أول commit: `task-01: project setup`.
+   - Make sure `.gitignore` includes `.env`, `vendor/`, and `node_modules/`.
+   - First commit: `task-01: project setup`.
 
-## ✅ المخرجات المطلوبة
-- مشروع Laravel شغّال.
-- اتصال ناجح بقاعدة البيانات.
-- ريبو Git مربوط وفيه commit أول نظيف.
+## ✅ Deliverables
+- A working Laravel project.
+- A successful database connection.
+- A Git repo with a clean first commit.
 
-## 💡 تلميحات
-- لا ترفع `.env` أبدًا — استخدم `.env.example` بدّاله.
-- خلّي إصدار PHP عندك 8.2 أو أحدث.
+## 💡 Tips
+- Never commit `.env` — use `.env.example` instead.
+- Use PHP 8.2 or newer.
 
-## 🔍 معايير القبول
-- [ ] المشروع يفتح على المتصفح
-- [ ] `migrate` نجح
-- [ ] `.gitignore` مضبوط و `.env` مش مرفوع
+## 🔍 Acceptance Criteria
+- [ ] The project opens in the browser
+- [ ] `migrate` succeeded
+- [ ] `.gitignore` is set and `.env` is not committed

@@ -1,58 +1,58 @@
-# التاسك 04 — المصادقة (Login / Logout عبر Sanctum)
+# Task 04 — Authentication (Login / Logout with Sanctum)
 
-## 🎯 الهدف
-بناء تسجيل دخول وخروج للـ Admin باستخدام Laravel Sanctum (Token-based).
+## 🎯 Goal
+Build login and logout for the Admin using Laravel Sanctum (token-based).
 
-## 📋 المطلوب
+## 📋 Requirements
 
-### 1. ثبّت وفعّل Sanctum
+### 1. Install and enable Sanctum
 ```bash
 php artisan install:api
 ```
-(أو حسب نسخة Laravel: `composer require laravel/sanctum` ثم نشر الإعدادات).
+(Or depending on your Laravel version: `composer require laravel/sanctum`, then publish the config.)
 
-### 2. أضف الـ Admin يدويًا
-المنصة يديرها مستخدم واحد، **يُضاف يدويًا** عبر Seeder:
+### 2. Add the Admin manually
+The platform is managed by a single user, **added manually** via a Seeder:
 ```bash
 php artisan make:seeder AdminSeeder
 ```
-- داخل الـ Seeder أنشئ مستخدم واحد بإيميل وباسوورد معروفين.
-- استخدم `Hash::make()` للباسوورد.
-- شغّل: `php artisan db:seed --class=AdminSeeder`
+- Inside the Seeder, create one user with a known email and password.
+- Use `Hash::make()` for the password.
+- Run: `php artisan db:seed --class=AdminSeeder`
 
-### 3. أنشئ AuthController
+### 3. Create AuthController
 ```bash
 php artisan make:controller AuthController
 ```
-عرّف:
-- `login()` — يستقبل email + password، يتحقق منهم، ويرجّع **token**.
-- `logout()` — يحذف التوكن الحالي.
+Define:
+- `login()` — receives email + password, validates them, returns a **token**.
+- `logout()` — deletes the current token.
 
-### 4. الـ Routes
-في `routes/api.php`:
-- `POST /api/login` — عام.
-- `POST /api/logout` — محمي بـ `auth:sanctum`.
+### 4. Routes
+In `routes/api.php`:
+- `POST /api/login` — public.
+- `POST /api/logout` — protected by `auth:sanctum`.
 
-### 5. احمِ باقي الـ routes
-كل routes الإدارة (أماكن العمل، المهام، المتطوعين، التنسيب) لازم تكون داخل:
+### 5. Protect the rest of the routes
+All admin routes (work locations, tasks, volunteers, assignment) must be inside:
 ```php
 Route::middleware('auth:sanctum')->group(function () {
     // ...
 });
 ```
 
-## ✅ المخرجات المطلوبة
-- Login يرجّع token صالح.
-- Logout يلغي التوكن.
-- الـ routes المحمية بترفض الطلب بدون token.
+## ✅ Deliverables
+- Login returns a valid token.
+- Logout revokes the token.
+- Protected routes reject requests without a token.
 
-## 💡 تلميحات
-- جرّب الطلبات على Postman وخزّن التوكن واستخدمه بالـ Header:
+## 💡 Tips
+- Test requests in Postman, save the token, and use it in the header:
   `Authorization: Bearer {token}`
-- لا تخزّن كلمات السر plain text أبدًا.
+- Never store passwords in plain text.
 
-## 🔍 معايير القبول
-- [ ] Admin مُضاف عبر Seeder
-- [ ] Login شغّال ويرجّع token
-- [ ] Logout يلغي التوكن
-- [ ] Routes المحمية ما بتفتح بدون token
+## 🔍 Acceptance Criteria
+- [ ] Admin added via Seeder
+- [ ] Login works and returns a token
+- [ ] Logout revokes the token
+- [ ] Protected routes don't open without a token

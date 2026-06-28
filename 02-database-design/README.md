@@ -1,48 +1,48 @@
-# التاسك 02 — تصميم قاعدة البيانات (Database Design + Migrations)
+# Task 02 — Database Design (Migrations)
 
-## 🎯 الهدف
-تصميم بنية قاعدة البيانات للمشروع، وكتابة الـ Migrations.
+## 🎯 Goal
+Design the project's database structure and write the Migrations.
 
-## 📋 المطلوب
+## 📋 Requirements
 
-### 1. ارسم مخطط ERD
-حدّد الجداول والعلاقات بينها قبل ما تكتب أي كود. ارفع صورة المخطط بالمجلد.
+### 1. Draw an ERD
+Decide on the tables and relationships **before** writing any code. Add the diagram image to this folder.
 
-### 2. الجداول المطلوبة (الحد الأدنى)
+### 2. Required tables (minimum)
 
-| الجدول | أهم الأعمدة |
-|--------|-------------|
-| `users` | id, name, email, password (موجود أصلًا — للـ Admin) |
-| `work_locations` | id, name, address (اختياري), timestamps |
-| `tasks` | id, name, description (اختياري), timestamps |
-| `volunteers` | id, name, phone, email (اختياري), timestamps |
-| `assignments` | id, volunteer_id, work_location_id, task_id, notes (اختياري), timestamps |
+| Table | Key columns |
+|-------|-------------|
+| `users` | id, name, email, password (already exists — for the Admin) |
+| `work_locations` | id, name, address (optional), timestamps |
+| `tasks` | id, name, description (optional), timestamps |
+| `volunteers` | id, name, phone, email (optional), timestamps |
+| `assignments` | id, volunteer_id, work_location_id, task_id, notes (optional), timestamps |
 
-> جدول `assignments` هو اللي بيربط: **متطوع + مكان عمل + مهمة**.
+> The `assignments` table is what links: **volunteer + work location + task**.
 
-### 3. اكتب الـ Migrations
-- كل جدول بـ migration خاص فيه.
-- استخدم **Foreign Keys** في `assignments`:
+### 3. Write the Migrations
+- One migration per table.
+- Use **foreign keys** in `assignments`:
   - `volunteer_id` → references `volunteers`
   - `work_location_id` → references `work_locations`
   - `task_id` → references `tasks`
-- فكّر في سلوك الحذف (`onDelete('cascade')` أو `restrict`) واكتب سبب اختيارك بالـ commit.
+- Decide on the delete behavior (`onDelete('cascade')` vs `restrict`) and explain your choice in the commit.
 
-### 4. شغّل
+### 4. Run
 ```bash
 php artisan migrate
 ```
 
-## ✅ المخرجات المطلوبة
-- صورة ERD داخل المجلد.
-- Migrations كاملة وشغّالة.
+## ✅ Deliverables
+- An ERD image inside this folder.
+- Complete, working migrations.
 
-## 💡 تلميحات
-- خلّي أسماء الجداول **جمع** وأسماء الأعمدة snake_case.
-- لا تنسى `unsignedBigInteger` / `foreignId()->constrained()` للمفاتيح الأجنبية.
+## 💡 Tips
+- Use **plural** table names and snake_case columns.
+- Don't forget `foreignId()->constrained()` for foreign keys.
 
-## 🔍 معايير القبول
-- [ ] ERD واضح ومنطقي
-- [ ] كل الجداول موجودة
-- [ ] Foreign keys معرّفة صح
-- [ ] `migrate` نجح بدون أخطاء
+## 🔍 Acceptance Criteria
+- [ ] Clear, logical ERD
+- [ ] All tables exist
+- [ ] Foreign keys defined correctly
+- [ ] `migrate` runs with no errors

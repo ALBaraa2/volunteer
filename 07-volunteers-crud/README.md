@@ -1,17 +1,17 @@
-# التاسك 07 — المتطوعين CRUD (Volunteers)
+# Task 07 — Volunteers CRUD
 
-## 🎯 الهدف
-بناء CRUD كامل للمتطوعين.
+## 🎯 Goal
+Build a full CRUD for volunteers.
 
-## 📋 المطلوب
-نفس النمط من [التاسك 05](../05-work-locations-crud):
+## 📋 Requirements
+Same pattern as [Task 05](../05-work-locations-crud):
 
 1. `VolunteerController` (`--api`).
 2. Form Requests: `StoreVolunteerRequest`, `UpdateVolunteerRequest`.
 3. `VolunteerResource`.
-4. Route: `Route::apiResource('volunteers', VolunteerController::class);` داخل مجموعة `auth:sanctum`.
+4. Route: `Route::apiResource('volunteers', VolunteerController::class);` inside the `auth:sanctum` group.
 
-### الـ Endpoints
+### Endpoints
 | Method | Endpoint |
 |--------|----------|
 | GET | `/api/volunteers` |
@@ -20,14 +20,14 @@
 | PUT/PATCH | `/api/volunteers/{id}` |
 | DELETE | `/api/volunteers/{id}` |
 
-## ✅ المخرجات المطلوبة
-- CRUD كامل للمتطوعين شغّال ومحمي.
+## ✅ Deliverables
+- Full, working, protected CRUD for volunteers.
 
-## 💡 تلميحات
-- في `index` فكّر تعرض مع كل متطوع تنسيباته (`with('assignments')`) — مفيد للتاسك الجاي.
-- تحقق من صيغة الإيميل/الهاتف في الـ Validation.
+## 💡 Tips
+- In `index`, consider showing each volunteer with their assignments (`with('assignments')`) — useful for the next task.
+- Validate email/phone format in the Form Request.
 
-## 🔍 معايير القبول
-- [ ] CRUD شغّال
-- [ ] Validation + Resource مستخدمين
-- [ ] محمي بـ Sanctum
+## 🔍 Acceptance Criteria
+- [ ] CRUD works
+- [ ] Validation + Resource used
+- [ ] Protected by Sanctum

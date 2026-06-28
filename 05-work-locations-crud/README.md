@@ -1,59 +1,59 @@
-# التاسك 05 — أماكن العمل CRUD (Work Locations)
+# Task 05 — Work Locations CRUD
 
-> هاد التاسك هو **النموذج (Pattern)** اللي رح تكرّره في تاسك المهام والمتطوعين. ركّز فيه منيح.
+> This task is the **pattern** you'll repeat in the Tasks and Volunteers tasks. Focus on it well.
 
-## 🎯 الهدف
-بناء CRUD كامل لأماكن العمل (إضافة / عرض / تعديل / حذف).
+## 🎯 Goal
+Build a full CRUD for work locations (add / view / edit / delete).
 
-## 📋 المطلوب
+## 📋 Requirements
 
-### 1. الـ Controller
+### 1. The Controller
 ```bash
 php artisan make:controller WorkLocationController --api
 ```
-عرّف الدوال: `index`, `store`, `show`, `update`, `destroy`.
+Define: `index`, `store`, `show`, `update`, `destroy`.
 
-### 2. الـ Validation (Form Request)
+### 2. Validation (Form Requests)
 ```bash
 php artisan make:request StoreWorkLocationRequest
 php artisan make:request UpdateWorkLocationRequest
 ```
-- ضع قواعد التحقق (مثلًا `name` required|string|max:255).
-- استخدمها داخل الـ Controller بدل ما تكتب validation داخل الدالة.
+- Add validation rules (e.g., `name` required|string|max:255).
+- Use them inside the Controller instead of writing validation in the methods.
 
-### 3. الـ API Resource
+### 3. API Resource
 ```bash
 php artisan make:resource WorkLocationResource
 ```
-- حدّد شكل الـ JSON اللي بترجع للـ client (لا ترجّع الـ model خام).
+- Define the JSON shape returned to the client (don't return the raw model).
 
-### 4. الـ Routes
-في `routes/api.php` داخل مجموعة `auth:sanctum`:
+### 4. Routes
+In `routes/api.php`, inside the `auth:sanctum` group:
 ```php
 Route::apiResource('work-locations', WorkLocationController::class);
 ```
 
-### 5. الـ Endpoints الناتجة
-| Method | Endpoint | الوظيفة |
-|--------|----------|---------|
-| GET | `/api/work-locations` | عرض الكل |
-| POST | `/api/work-locations` | إضافة |
-| GET | `/api/work-locations/{id}` | عرض واحد |
-| PUT/PATCH | `/api/work-locations/{id}` | تعديل |
-| DELETE | `/api/work-locations/{id}` | حذف |
+### 5. Resulting endpoints
+| Method | Endpoint | Function |
+|--------|----------|----------|
+| GET | `/api/work-locations` | List all |
+| POST | `/api/work-locations` | Create |
+| GET | `/api/work-locations/{id}` | Show one |
+| PUT/PATCH | `/api/work-locations/{id}` | Update |
+| DELETE | `/api/work-locations/{id}` | Delete |
 
-## ✅ المخرجات المطلوبة
-- 5 endpoints شغّالة ومحمية بالمصادقة.
-- Validation تشتغل وترجّع أخطاء واضحة.
-- الردود عبر Resource.
+## ✅ Deliverables
+- 5 working endpoints, protected by authentication.
+- Validation works and returns clear errors.
+- Responses go through a Resource.
 
-## 💡 تلميحات
-- استخدم Eloquent: `WorkLocation::create()`, `->update()`, `->delete()`.
-- استخدم **Route Model Binding** (مرّر `WorkLocation $workLocation` بدل `$id`).
-- رجّع status codes صحيحة (201 للإنشاء، 404 لغير الموجود…).
+## 💡 Tips
+- Use Eloquent: `WorkLocation::create()`, `->update()`, `->delete()`.
+- Use **Route Model Binding** (pass `WorkLocation $workLocation` instead of `$id`).
+- Return correct status codes (201 for create, 404 for not found…).
 
-## 🔍 معايير القبول
-- [ ] كل الـ CRUD شغّال
-- [ ] Form Requests مستخدمة
-- [ ] Resource مستخدم
-- [ ] محمي بـ Sanctum
+## 🔍 Acceptance Criteria
+- [ ] All CRUD works
+- [ ] Form Requests used
+- [ ] Resource used
+- [ ] Protected by Sanctum

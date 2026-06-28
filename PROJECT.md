@@ -1,49 +1,49 @@
-# وصف المشروع الكامل
+# Full Project Description
 
-## طبيعة المشروع
+## Project Nature
 
-تطوير **تطبيق ويب صغير** باستخدام **Laravel**.
+Develop a small **web application** using **Laravel**.
 
-### الفرونت إند
+### Frontend
 
-يُفضّل استخدام **قالب فرونت جاهز** (اختياري — التركيز الأساسي على الباك إند / API).
-
----
-
-## متطلبات المشروع
-
-المشروع عبارة عن تطبيق ويب صغير **لتنسيق المتطوعين**، بحيث يتم توزيعهم على المهام في أماكن العمل.
-
-المنصة يقوم بإدارتها **مستخدم واحد (Admin)**، تتم إضافته **يدويًا** إلى قاعدة البيانات (Seeder).
-
-بناءً على ذلك، الـ **API requests** المطلوبة هي:
-
-1. **تسجيل الدخول** و **تسجيل الخروج**.
-2. **أماكن العمل** — إضافة / تعديل / حذف / عرض
-   (مثل: مشفى الشفاء، مركز توزيع المساعدات … إلخ).
-3. **المهام** — إضافة / تعديل / حذف / عرض
-   (مثل: التوزيع، الإدارة، الإسعاف، المراقبة).
-4. **المتطوعين** — إضافة / تعديل / حذف / عرض.
-5. **تنسيب المتطوع** إلى مكان عمل من الأماكن المُضافة مسبقًا؛
-   مع اختيار **مهمته** (من المهام المُضافة مسبقًا) في ذلك المكان.
+Preferably use a **ready-made frontend template** (optional — the main focus is the back-end / API).
 
 ---
 
-## ملاحظات هامة
+## Project Requirements
 
-- تأكّد من **تقسيم ملفات المشروع** بشكل سليم وبمعايير واضحة.
-- استخدام **Eloquent** و **Eloquent Relationships** فيما يتعلق بعمليات قواعد البيانات.
+The project is a small web application **for coordinating volunteers**, distributing them across tasks at work locations.
+
+The platform is managed by a **single user (Admin)**, who is added **manually** to the database (via a Seeder).
+
+Based on that, the required **API requests** are:
+
+1. **Login** and **logout**.
+2. **Work locations** — add / edit / delete / view
+   (e.g., Al-Shifa Hospital, aid distribution center, etc.).
+3. **Tasks** — add / edit / delete / view
+   (e.g., distribution, management, first aid, monitoring).
+4. **Volunteers** — add / edit / delete / view.
+5. **Assign a volunteer** to a previously added work location;
+   choosing their **task** (from the previously added tasks) at that location.
 
 ---
 
-## الكيانات (Entities) المتوقعة
+## Important Notes
 
-| الكيان | الوصف |
-|--------|-------|
-| `User` | المدير (Admin) الوحيد للمنصة |
-| `WorkLocation` | مكان العمل (مشفى، مركز توزيع…) |
-| `Task` | المهمة (توزيع، إسعاف، مراقبة…) |
-| `Volunteer` | المتطوع |
-| `Assignment` | تنسيب: يربط متطوع + مكان عمل + مهمة |
+- Make sure to **organize the project files** properly with clear standards.
+- Use **Eloquent** and **Eloquent Relationships** for database operations.
 
-> هاد التقسيم مقترح ومنطقي للمشروع — رح نفصّله في تاسك تصميم قاعدة البيانات.
+---
+
+## Expected Entities
+
+| Entity | Description |
+|--------|-------------|
+| `User` | The single Admin who manages the platform |
+| `WorkLocation` | A work location (hospital, distribution center…) |
+| `Task` | A task (distribution, first aid, monitoring…) |
+| `Volunteer` | A volunteer |
+| `Assignment` | Links a volunteer + work location + task |
+
+> This breakdown is a suggested and logical model for the project — we will detail it in the database design task.

@@ -1,17 +1,17 @@
-# التاسك 06 — المهام CRUD (Tasks)
+# Task 06 — Tasks CRUD
 
-## 🎯 الهدف
-بناء CRUD كامل للمهام (مثل: التوزيع، الإدارة، الإسعاف، المراقبة).
+## 🎯 Goal
+Build a full CRUD for tasks (e.g., distribution, management, first aid, monitoring).
 
-## 📋 المطلوب
-كرّر نفس النمط من [التاسك 05](../05-work-locations-crud):
+## 📋 Requirements
+Repeat the same pattern from [Task 05](../05-work-locations-crud):
 
 1. `TaskController` (`--api`).
 2. Form Requests: `StoreTaskRequest`, `UpdateTaskRequest`.
 3. `TaskResource`.
-4. Route: `Route::apiResource('tasks', TaskController::class);` داخل مجموعة `auth:sanctum`.
+4. Route: `Route::apiResource('tasks', TaskController::class);` inside the `auth:sanctum` group.
 
-### الـ Endpoints
+### Endpoints
 | Method | Endpoint |
 |--------|----------|
 | GET | `/api/tasks` |
@@ -20,14 +20,14 @@
 | PUT/PATCH | `/api/tasks/{id}` |
 | DELETE | `/api/tasks/{id}` |
 
-## ✅ المخرجات المطلوبة
-- CRUD كامل للمهام شغّال ومحمي.
+## ✅ Deliverables
+- Full, working, protected CRUD for tasks.
 
-## 💡 تلميحات
-- لا تكرّر الكود حرفيًا — افهم النمط وطبّقه.
-- خلّي `name` مطلوب وفريد (`unique`) لو منطقي إن أسماء المهام ما تتكرر.
+## 💡 Tips
+- Don't copy code blindly — understand the pattern and apply it.
+- Make `name` required and `unique` if it makes sense that task names shouldn't repeat.
 
-## 🔍 معايير القبول
-- [ ] CRUD شغّال
-- [ ] Validation + Resource مستخدمين
-- [ ] محمي بـ Sanctum
+## 🔍 Acceptance Criteria
+- [ ] CRUD works
+- [ ] Validation + Resource used
+- [ ] Protected by Sanctum

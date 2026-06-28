@@ -1,8 +1,8 @@
-# مصادر مساعدة (Resources)
+# Resources
 
-روابط تساعد الطلاب خلال المشروع.
+Links to help students throughout the project.
 
-## التوثيق الرسمي
+## Official Documentation
 - Laravel Docs: https://laravel.com/docs
 - Eloquent ORM: https://laravel.com/docs/eloquent
 - Eloquent Relationships: https://laravel.com/docs/eloquent-relationships
@@ -10,17 +10,17 @@
 - API Resources: https://laravel.com/docs/eloquent-resources
 - Laravel Sanctum: https://laravel.com/docs/sanctum
 
-## أدوات
+## Tools
 - Postman: https://www.postman.com/
 - Insomnia: https://insomnia.rest/
 
-## مفاهيم مهمة لازم تفهمها
-- الفرق بين `hasMany` / `belongsTo` / `belongsToMany`.
+## Concepts you must understand
+- The difference between `hasMany` / `belongsTo` / `belongsToMany`.
 - Route Model Binding.
-- Mass Assignment و `$fillable`.
-- Eager Loading عبر `with()` لحل مشكلة N+1.
-- Migrations و Foreign Keys و سلوك الحذف (`cascade` / `restrict`).
-- HTTP Status Codes (200, 201, 401, 404, 422).
+- Mass Assignment and `$fillable`.
+- Eager Loading via `with()` to solve the N+1 problem.
+- Migrations, foreign keys, and delete behavior (`cascade` / `restrict`).
+- HTTP status codes (200, 201, 401, 404, 422).
 
-## نصيحة للطلاب
-لا تنسخ الكود من غير ما تفهمه. لو علقت بتاسك، ارجع للتوثيق الرسمي أول إشي.
+## Advice for students
+Don't copy code you don't understand. If you get stuck on a task, check the official docs first.
